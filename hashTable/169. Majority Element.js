@@ -12,7 +12,6 @@ const majorityElement = (nums) => {
     let keyNumber = 0
     for(let key in hash){
          if(counter < hash[key]){
-            console.log(counter, hash[key])
             counter = hash[key]
             keyNumber = key
         }

@@ -17,6 +17,7 @@ const isValid = function (s) {
   for (let ch of s) {
     if (brackets[ch]) {
       // есть чем открыть закидываем чем открыть
+      
       stack.push(brackets[ch]);
     } else if (stack.length > 0 && stack[stack.length - 1] === ch) {
       // последний элемент закрывающий -> выкинуть со стека ибо есть пара
