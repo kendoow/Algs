@@ -1,0 +1,3 @@
+const findAndReplacePattern = (words, pattern) => {
+    
+};

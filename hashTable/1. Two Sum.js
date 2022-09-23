@@ -6,7 +6,6 @@ const twoSum = function (nums, target) {
 
   for (let i = 0; i < nums.length; i++) {
     let razintsa = target - nums[i];
-    console.log(hash[razintsa])
     if (hash[razintsa] && hash[razintsa] !== i) {
       return [i, hash[razintsa]];
     }
