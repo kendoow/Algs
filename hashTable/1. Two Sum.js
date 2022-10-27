@@ -9,7 +9,7 @@ const twoSum = function (nums, target) {
     if (hash[razintsa] && hash[razintsa] !== i) {
       return [i, hash[razintsa]];
     }
-  }
+  } 
   return []
 };
 

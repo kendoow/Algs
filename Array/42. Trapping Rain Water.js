@@ -1,0 +1,3 @@
+const trap = (height) => {
+    
+};

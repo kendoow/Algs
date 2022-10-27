@@ -9,7 +9,7 @@ const majorityElement = (nums) => {
   for (key in hash) {
     if (hash[key] > max) {
       ans.push(Number(key));
-    }
+    } 
   }
   console.log(hash);
   return ans;
