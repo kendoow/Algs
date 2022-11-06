@@ -1,3 +1,0 @@
-const searchBST = (root, val) => {
-    
-};
