@@ -10,10 +10,10 @@ const numSubarrayProductLessThanK = (nums, k) => {
     product = 1;
   for (let i = 0; i < nums.length; i++) {
     product *= nums[i];
-    while(product >= k && start <= i){
-        product /= nums[start++];
+    while (product >= k && start <= i) {
+      product /= nums[start++];
     }
-    count += i - start + 1
+    count += i - start + 1;
   }
-  return count
+  return count;
 };
