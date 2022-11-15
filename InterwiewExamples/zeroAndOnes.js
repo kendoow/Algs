@@ -3,5 +3,5 @@
 // [1, 1, 0]
 
 const zeroAndOnes = (arr) => {
-    
-}
+
+};
