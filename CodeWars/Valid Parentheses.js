@@ -1,21 +1,20 @@
 const validParentheses = (parens) => {
+  const stack = [];
 
-  const stack = []
-
-  for (el of parens){
+  for (el of parens) {
     if (el) {
-        // есть чем открыть закидываем чем открыть
-        stack.push(el);
-    } 
-     if(stack[0] === '(' && stack[stack.length - 1] === ')'){
-      stack.pop() 
-      stack.shift()
+      // есть чем открыть закидываем чем открыть
+      stack.push(el);
+    }
+    if (stack[0] === "(" && stack[stack.length - 1] === ")") {
+      stack.pop();
+      stack.shift();
     }
   }
-  if(stack.length === 0){
-    return true 
+  if (stack.length === 0) {
+    return true;
   } else {
-    return false
+    return false;
   }
 };
-console.log(validParentheses('(())()(())'))
+console.log(validParentheses("(())()(())"));

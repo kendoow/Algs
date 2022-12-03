@@ -1,0 +1,3 @@
+const splitArray = (nums, k) => {
+    
+};
