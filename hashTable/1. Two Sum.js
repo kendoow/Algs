@@ -1,16 +1,12 @@
 const twoSum = function (nums, target) {
-  const hash = {};
-  for (let i = 0; i < nums.length; i++) {
-    hash[nums[i]] = i;
-  }
-
-  for (let i = 0; i < nums.length; i++) {
-    let razintsa = target - nums[i];
-    if (hash[razintsa] && hash[razintsa] !== i) {
-      return [i, hash[razintsa]];
+  const res = {};
+  for (let i = 0; i <= nums.length; i++) {
+    if (res[nums[i]] >= 0) {
+      return [res[nums[i]], i];
     }
-  } 
-  return []
+
+    res[target - nums[i]] = i;
+  }
 };
 
-console.log(twoSum([1, 3, 4, 2], 6));
+console.log(twoSum([2, 7, 11, 15], 9));

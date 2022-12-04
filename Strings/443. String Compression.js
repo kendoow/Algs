@@ -1,0 +1,3 @@
+const compress = (chars) => {
+    
+};
