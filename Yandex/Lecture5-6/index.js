@@ -1,13 +1,10 @@
-console.log(1);
+var obj = {};
 
-setTimeout(() => console.log(2));
+function func(x) {
+	x = 1;
 
-Promise.resolve().then(() => console.log(3));
+	return x;
+}
 
-Promise.resolve().then(() => setTimeout(() => console.log(4)));
-
-Promise.resolve().then(() => console.log(5));
-
-setTimeout(() => console.log(6));
-
-console.log(7);
+func(obj); // => ?
+console.log(obj);
