@@ -10,30 +10,23 @@ const calcInPolishNotation = (arr) => {
     } else if (operators.includes(arr[i])) {
       // если знак, то меняем стек
       if (arr[i] === "+") {
-        second = stack[stack.length - 1];
-        first = stack[stack.length - 2];
-        stack.pop();
-        stack.pop();
+        second = stack.pop();
+        first = stack.pop();
         stack.push(second + first);
       } else if (arr[i] === "-") {
-        second = stack[stack.length - 1];
-        first = stack[stack.length - 2];
-        stack.pop();
-        stack.pop();
+        second = stack.pop();
+        first = stack.pop();
         stack.push(first - second);
       } else if (arr[i] === "*") {
-        second = stack[stack.length - 1];
-        first = stack[stack.length - 2];
-        stack.pop();
-        stack.pop();
+        second = stack.pop();
+        first = stack.pop();
         stack.push(second * first);
       }
     }
   }
 
-  return stack[0]
+  return stack[0];
 };
-
 
 // const calcInPolishNotation = function(array) {
 //     const stackNumbers = [];
@@ -43,7 +36,7 @@ const calcInPolishNotation = (arr) => {
 //         '*': (x,y) => x * y,
 //         '/': (x,y) => x / y,
 //     }
-    
+
 //     return array.reduce((acc, value) => {
 //         if (value === +value) stackNumbers.push(value);
 //         else {
@@ -52,7 +45,7 @@ const calcInPolishNotation = (arr) => {
 //             const newValue = collection[value](firstNumber, secondNumber);
 //             stackNumbers.push(newValue);
 //         }
-        
+
 //         return stackNumbers.at(-1);
 //     }, 0)
 // }
