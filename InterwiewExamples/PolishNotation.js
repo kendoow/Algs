@@ -1,33 +1,32 @@
 const calcInPolishNotation = (arr) => {
-  const stack = [];
-  const operators = ["+", "-", "*", "/"];
-  let first;
-  let second;
+  let stack = [];
   for (let i = 0; i < arr.length; i++) {
-    if (!operators.includes(arr[i])) {
-      // если число, то пушим чиселку
-      stack.push(arr[i]);
-    } else if (operators.includes(arr[i])) {
-      // если знак, то меняем стек
-      if (arr[i] === "+") {
-        second = stack.pop();
-        first = stack.pop();
-        stack.push(second + first);
-      } else if (arr[i] === "-") {
-        second = stack.pop();
-        first = stack.pop();
-        stack.push(first - second);
-      } else if (arr[i] === "*") {
-        second = stack.pop();
-        first = stack.pop();
-        stack.push(second * first);
-      }
-    }
+    if (arr[i] == "+") {
+      let sec = +stack.pop();
+      let fir = +stack.pop();
+      stack.push(sec + fir);
+    } else if (arr[i] == "-") {
+      let sec = +stack.pop();
+      let fir = +stack.pop();
+      stack.push(fir - sec);
+    } else if (arr[i] == "*") {
+      let sec = +stack.pop();
+      let fir = +stack.pop();
+      stack.push(sec * fir);
+    } else if (arr[i] == "/") {
+      let sec = +stack.pop();
+      let fir = +stack.pop();
+      stack.push(Math.trunc(fir / sec));
+    } else stack.push(arr[i]);
   }
-
   return stack[0];
 };
 
+/**
+ * @param {string[]} arr
+ * @return {number}
+ */
+const evalRPN = (arr) => {};
 // const calcInPolishNotation = function(array) {
 //     const stackNumbers = [];
 //     const collection = {
@@ -53,4 +52,4 @@ const calcInPolishNotation = (arr) => {
 console.log(calcInPolishNotation([1, 2, "+", 3, "+", 14, "+"])); //  20
 console.log(calcInPolishNotation([1, 2, "+", 4, "*", 3, "+"])); // 15
 console.log(calcInPolishNotation([7, 2, 3, "*", "-"])); // 1 / [7,2,3] -> [7,6] i =  -> [1]
-// 1 2 3 * + => Это (2 * 3) + 1
+// 1 2 3 * + => Это (2 * 3) + 1j
