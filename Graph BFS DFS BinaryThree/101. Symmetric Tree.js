@@ -1,17 +1,15 @@
 const isSymmetric = (root) => {
-  const hash = {}
-  let sliced = root.slice(1)
-  for (el of sliced) {
-    hash[el] = (hash[el] || 0) + 1;
-  }
-  console.log(hash)
-  for (key in hash){
-    if(hash[key] % 2 !== 0){
-        return false
-    }
-  }
-  console.log(hash)
-  return true
+  if (root == null) return true;
+
+  const dfs = (left, right) => {
+    if (!left && !right) return true;
+
+    if (!left || !right || left.val != right.val) return false;
+
+    return dfs(left.left, right.right) && dfs(left.right, right.left);
+  };
+
+  return dfs(root.left, root.right);
 };
 
-console.log(isSymmetric([1,2,2,3,4,4,3]));
+console.log(isSymmetric([1, 2, 2, 3, 4, 4, 3]));
