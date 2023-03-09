@@ -1,12 +1,15 @@
 const canPlaceFlowers = (flowerbed, n) => {
-  let podryadmax = 1;
-  for (let i = 0; i < flowerbed.length; i++) {
-    console.log(podryadmax);
-    if (flowerbed[i] === 1 && flowerbed[i + 1] === 1) {
-      podryadmax++;
+  for (let i = 0; i < flowerbed.length && n !== 0; i++) {
+    const prev = flowerbed[i - 1];
+    const curr = flowerbed[i];
+    const next = flowerbed[i + 1];
+    if (curr === 0 && prev !== 1 && next !== 1) {
+      n--;
+      i++;
     }
   }
-  return podryadmax >= n ? true : false;
+  return n === 0;
 };
 
 console.log(canPlaceFlowers([1, 0, 0, 0, 0, 0, 1], 2));
+console.log(canPlaceFlowers([0, 0, 1, 0, 1], 1));
