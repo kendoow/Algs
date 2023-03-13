@@ -1,16 +1,25 @@
 const validPalindrome = (s) => {
   let left = 0;
   let rigth = s.length - 1;
-  let counter = 0;
-  if (s[left] === s[rigth]) {
+  while (left < rigth) {
+    if (s[left] !== s[rigth]) {
+      return (
+        isPalindrome(s, left + 1, rigth) || isPalindrome(s, left, rigth - 1)
+      );
+    }
     left++;
-    rigth++;
-  } else if (s[left + 1] === s[rigth]) {
-    counter++;
-    left += 2;
-  } else if (s[left] === s[rigth + 1]) {
-    counter++;
-    rigth += 2;
+    rigth--;
   }
-  return counter >= 1 ? false : true;
+  return true;
+};
+
+const isPalindrome = (s, left, rigth) => {
+  while (left < rigth) {
+    if (s[left] !== s[rigth]) {
+      return false;
+    }
+    left++;
+    rigth--;
+  }
+  return true;
 };
