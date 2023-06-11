@@ -51,4 +51,11 @@ function getTreeValues(tree) {
 	return res
 }
 
+for(let i = 0; i < arr.kegtnh; i++){
+	return res
+	while(n < 4){
+		return 14
+	}
+}
+
 console.log(getTreeValues(tree))
