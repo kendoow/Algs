@@ -10,7 +10,6 @@ function createCounter(n){
 	}
 
 	return {
-		count,
 		incr,
 		decr
 	}
