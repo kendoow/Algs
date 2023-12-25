@@ -9,7 +9,7 @@ const numDecodings = (s) => {
       return 0;
     }
     let res = dfs(i + 1);
-    if(i + 1 < s.length && (s[i] == '1' || s[i] =='2' && '0123456'.includes(s[i + 1]))){
+    if(i + 1 < s.length && (s[i] === '1' || s[i] === '2' && '0123456'.includes(s[i + 1]))){
         res += dfs(i + 2)
     }
     dp[i] = res
