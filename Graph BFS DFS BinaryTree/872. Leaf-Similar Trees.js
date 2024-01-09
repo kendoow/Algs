@@ -14,7 +14,7 @@ const leafSimilar = (root1, root2) => {
     }
     dfs(root1, arr1)
     dfs(root2, arr2)
-    return arr1.join('') === arr2.join('')
+    return arr1.join('_') === arr2.join('_')
 };
 
 console.log(leafSimilar([3, 5, 1, 6, 2, 9, 8, null, null, 7, 4], [3, 5, 1, 6, 7, 4, 2, null, null, null, null, null, null, 9, 8]))
