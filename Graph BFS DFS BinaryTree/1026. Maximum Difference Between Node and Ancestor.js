@@ -26,6 +26,6 @@ const findMax = (root, minv, maxv) => {
 const maxAncestorDiff = function (root) {
     let minv = root.val;
     let maxv = root.val;
-    return this.findMax(root, minv, maxv)
+    return findMax(root, minv, maxv)
 };
 
