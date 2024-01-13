@@ -1,33 +1,27 @@
-const minSteps = function (s, t) {
-  const mapForS = {};
-  const mapForT = {};
-
-  sSort = s.split('').sort().join('')
-  tSort = t.split('').sort().join('')
-
-  for (let el of sSort) {
-    mapForS[el] = (mapForS[el] || 0) + 1;
-  }
-  for (let el of tSort) {
-    mapForT[el] = (mapForT[el] || 0) + 1;
-  }
-
-  let answer = 0
-  let set = new Set(s)
- 
-  console.log(mapForT, mapForS)
-  for (let el of set) {
-  
-    if( mapForT[el]) {
-        mapForS[el] = mapForS[el] - mapForT[el];
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {number}
+ */
+var minSteps = function (s, t) {
+    const hashs = {}
+    const hasht = {}
+    let counter = 0
+    for (const str of s) {
+        hashs[str] = (hashs[str] || 0) + 1
     }
-    if( mapForS[el] > 0 ) {
-        answer += mapForS[el];
+
+    for (const str of t) {
+        hasht[str] = (hasht[str] || 0) + 1
     }
-  
-  }
-  return answer
+
+    for(let el of s){
+        if(hasht[el] && hasht[el] > 0) {
+            hasht[el]--
+        } else {
+            counter++
+        }
+    }
+
+    return counter
 };
-console.log(minSteps("anagram","mangaar"))
-console.log(minSteps("leetcode","practice")) // не работает
-console.log(minSteps("bab","aba"))
