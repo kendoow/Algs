@@ -1,45 +1,43 @@
 var findWinners = function (matches) {
-  const oneMore = [];
-  const zero = [];
+    let losses = new Array(100001).fill(0);
 
-  const hash = {};
+    for (const [winner, loser] of matches) {
+        if (losses[winner] === 0) {
+            losses[winner] = -1;
+        }
 
-  for (let [winner, loser] of matches) {
-    if (!hash[loser]) {
-      hash[loser] = "lost once";
-    } else if (hash[loser]) {
-      hash[loser] = "lost more than once";
+        if (losses[loser] === -1) {
+            losses[loser] = 1;
+        } else {
+            losses[loser]++;
+        }
     }
-  }
 
-  for (let [winner, loser] of matches) {
-    console.log(winner, loser);
-    if (!hash[winner] && !zero.includes(winner)) {
-      zero.push(winner);
+    let zeroLoss = [];
+    let oneLoss = [];
+
+    for (let i = 1; i <= 100000; ++i) {
+        if (losses[i] === -1) {
+            zeroLoss.push(i);
+        } else if (losses[i] === 1) {
+            oneLoss.push(i);
+        }
     }
-    if (hash[winner] == "lost once" && !oneMore.includes(winner)) {
-      oneMore.push(winner);
-    }
-    if (hash[loser] == "lost once" && !oneMore.includes(loser)) {
-      oneMore.push(loser);
-    }
-  }
-  console.log(hash, oneMore);
-  return [zero.sort((a, b) => a - b), oneMore.sort((a, b) => a - b)];
+
+    return [zeroLoss, oneLoss];
 };
-
 console.log(
-  findWinners([
-    [1, 3],
-    [2, 3],
-    [3, 6],
-    [5, 6],
-    [5, 7],
-    [4, 5],
-    [4, 8],
-    [4, 9],
-    [10, 4],
-    [10, 9],
-  ])
+    findWinners([
+        [1, 3],
+        [2, 3],
+        [3, 6],
+        [5, 6],
+        [5, 7],
+        [4, 5],
+        [4, 8],
+        [4, 9],
+        [10, 4],
+        [10, 9],
+    ])
 );
 console.log(findWinners([[1, 100000]]));
