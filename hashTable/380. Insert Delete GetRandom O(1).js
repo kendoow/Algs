@@ -25,7 +25,6 @@ RandomizedSet.prototype.remove = function (val) {
         delete this.hash[val]
         return true
     }
-
 };
 
 /**
