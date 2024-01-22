@@ -1,24 +1,19 @@
 const findErrorNums = (nums) => {
-  const hash = {};
-  const answ = [];
-  let duplicate = null
-  let notExist = null
-  for (let i = 0; i < nums.length; i++) {
-    console.log(nums[i])
-    if (!hash[nums[i]]) {
-      hash[nums[i]] = 0;
-    } 
-      hash[nums[i]] += 1;
-    
-    if (hash[nums[i]] > 1) {
-      duplicate = nums[i]
+    let missing = -1
+    let duplicate = -1
+    const hash = {}
+
+    for(const el of nums){
+        hash[el] = (hash[el] || 0) + 1
     }
-    if (!nums.includes(i + 1)) {
-        notExist = i + 1;
+    for (let i = 1; i <= nums.length; i++) {
+        if (hash[i] === 2) {
+            duplicate = i;
+        }
+        else if (!hash[i]) {
+            missing = i;
+        }
     }
-  }
-  answ.push(duplicate)
-  answ.push(notExist)
-  return answ;
+    return [duplicate, missing]
 };
-console.log(findErrorNums([1,2,2,4]))
+console.log(findErrorNums([1, 2, 2, 4]))
